@@ -144,7 +144,7 @@ ax.set_xlim([-.0, xmax+.005])
 plot_arrows(fig, ax)
 
 plt.tight_layout()
-plt.savefig('1.pdf')
+plt.savefig('figs/1.pdf')
 
 ######################### Figure 2 - Population regret #########################
 from matplotlib.patches import Rectangle
@@ -201,7 +201,7 @@ plt.xlim([0, np.max(a)])
 plt.ylim([-.01, .2])
 plt.yticks([0, .04, .08, .12, .16, .2])
 plt.tight_layout()
-plt.savefig('2a.pdf')
+plt.savefig('figs/2a.pdf')
 
 bayes_risk_abs = np.abs(pi0*tau + (1-pi0)*tau**a-(pi0/alpha)*tau)
 
@@ -239,7 +239,7 @@ plt.gca().spines['right'].set_color('none')
 plt.xlim([0, np.max(a)])
 plt.ylim([-.02, 1.02])
 plt.tight_layout()
-plt.savefig('2b.pdf')
+plt.savefig('figs/2b.pdf')
 
 ################ Figure 3 - ecdf and its least concave majorant ################
 def cusum(x):
@@ -326,7 +326,7 @@ ax.spines['right'].set_color('none')
 plot_arrows(fig, ax)
 
 plt.tight_layout()
-plt.savefig('3a.pdf')
+plt.savefig('figs/3a.pdf')
 
 tt = np.linspace(0, 1, 100000)
 fms = np.array([np.mean(p_ <= t) for t in tt])
@@ -362,7 +362,7 @@ ax.spines['right'].set_color('none')
 
 plot_arrows(fig, ax)
 plt.tight_layout()
-plt.savefig('3b.pdf')
+plt.savefig('figs/3b.pdf')
 
 ############################### Simulation code ################################
 def last_argmin(x, axis=None):
@@ -610,7 +610,7 @@ def sim(setting, ms, S, **kwargs):
             plt.xlabel(pname)
 
             plt.tight_layout()
-            plt.savefig(setting + ' ' + metric + 
+            plt.savefig('figs/' + setting + ' ' + metric + 
                         ' control' + ' m = %d' %m + '.pdf')
 
         if setting in {'independent Gaussian', 'misspecified'}:
@@ -659,7 +659,7 @@ def sim(setting, ms, S, **kwargs):
             ax.plot(qs, pi0*qs+m**(-1/3)*err, 'x', c=lblue)
             
         plt.tight_layout()
-        plt.savefig(setting + ' max-lfdr IQR' + ' m = %d' %m + '.pdf')
+        plt.savefig('figs/' + setting + ' max-lfdr IQR' + ' m = %d' %m + '.pdf')
 
 ############## Figures 4 & 5 - illustrate results from section 2 ###############
 pi0 = 3/4 
@@ -693,7 +693,7 @@ plt.gca().spines['top'].set_visible(False)
 plt.gca().spines['right'].set_visible(False)
 
 plt.tight_layout(pad=2.)
-plt.savefig('4a.pdf', bbox_inches='tight') 
+plt.savefig('figs/4a.pdf', bbox_inches='tight') 
 
 plt.figure(figsize=(2.8, 2.8))
 
@@ -709,7 +709,7 @@ plt.gca().set_xlim([0, 1])
 plt.gca().spines['right'].set_visible(False)
 
 plt.tight_layout(pad=2.)
-plt.savefig('4b.pdf', bbox_inches='tight') 
+plt.savefig('figs/4b.pdf', bbox_inches='tight') 
 
 S = 100000
 qs = np.linspace(.01, .3, 10)
@@ -838,7 +838,7 @@ plt.title('Asymptotic rate of regret $(\\omega=%d)$'%lam)
 plt.legend(fontsize=8)
 plt.grid(alpha=.5)
 plt.tight_layout()
-plt.savefig('6.pdf') 
+plt.savefig('figs/6.pdf') 
 
 ############################## Figures 7, 8, & 9 ###############################
 S = 100000
@@ -878,7 +878,7 @@ plt.gca().set_xlim([0, 1])
 plt.gca().spines['right'].set_visible(False)
 
 plt.tight_layout(pad=2.)
-plt.savefig('8a.pdf', bbox_inches='tight') 
+plt.savefig('figs/8a.pdf', bbox_inches='tight') 
 
 tt = np.linspace(0, .1, 100000)
 ff = stats.beta.pdf(tt[:, np.newaxis], a=aa, b=bb)@probs
@@ -899,7 +899,7 @@ plt.gca().set_xlim([0, .05])
 plt.gca().spines['right'].set_visible(False)
 
 plt.tight_layout(pad=2.)
-plt.savefig('8b.pdf', bbox_inches='tight') 
+plt.savefig('figs/8b.pdf', bbox_inches='tight') 
 
 ## very slow
 qs = np.linspace(.01, .3, 10)
